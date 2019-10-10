@@ -7,7 +7,8 @@ export default function Card(props) {
       <button
         type='button'
         onClick={() => {
-          console.log(props.key)
+          //console.log(props.id);
+          props.handleDelete(props.id);
         }}>
         delete
       </button>
