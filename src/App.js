@@ -21,7 +21,6 @@ class App extends Component {
 
   // Create a function to omit, iterates through the object and pulls the matched value.
   // Then returns a brand new version of the object without.
-  
     handleDeleteCard = (id) => {
       const newLists = this.state.store.lists.map(list => {
         return {...list, cardIds: list.cardIds.filter(cardId => cardId !== id)}
