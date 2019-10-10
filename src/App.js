@@ -15,10 +15,8 @@ function omit(obj, keyToOmit){
 }
 
 function randomCard () {
-
   const id = Math.random().toString(36).substring(2, 4)
           + Math.random().toString(36).substring(2, 4);
-      
   return {
     id,
     title: `Random Card ${id}`,
@@ -32,7 +30,6 @@ class App extends Component {
     }
 
     handleRandomCard = (listId) => {
-      console.log(this.state.store);
       const newCard = randomCard()
       const newList = this.state.store.lists.map((item) => {
         if(item.id === listId) {
@@ -42,14 +39,13 @@ class App extends Component {
           };
         }
         return item;
-      }) 
-      console.log(newCard);
-      console.log(newList);      
+      })   
+      const newObj = this.state.store.allCards;
+      newObj[newCard.id]=newCard;
       this.setState({
         store: {
-                ...this.state.store,
-                lists: newList,
-                allCards: newCard}
+          lists: newList,
+          allCards: newObj}
     })
   }
 
